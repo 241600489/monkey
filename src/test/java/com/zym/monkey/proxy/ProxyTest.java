@@ -3,6 +3,10 @@ package com.zym.monkey.proxy;
 import com.zym.monkey.monkeycore.intercep.DefaultMethodInvocation;
 import com.zym.monkey.monkeycore.intercep.Interceptor;
 import com.zym.monkey.monkeycore.intercep.InterceptorChain;
+import io.netty.handler.codec.http.DefaultFullHttpRequest;
+import io.netty.handler.codec.http.FullHttpRequest;
+import io.netty.handler.codec.http.HttpMethod;
+import io.netty.handler.codec.http.HttpVersion;
 import org.junit.Test;
 
 import java.lang.reflect.Proxy;
@@ -19,13 +23,13 @@ public class ProxyTest  {
         InterceptorChain chain = new InterceptorChain();
         chain.addInterceptor("time", new TimeIntercepter());
         chain.addInterceptor("log", new LogInterceptor());
+        chain.addInterceptor("tokenVerify", new TokenInterceptor());
         DemoService target = new DemoServiceImpl();
         List<Interceptor> interceptors = chain.interceptors();
         MyHandler myHandler = new MyHandler(target, interceptors);
         DemoService proxy = (DemoService) Proxy.newProxyInstance(ProxyTest.class.getClassLoader(),
                 target.getClass().getInterfaces(), myHandler);
-
-        proxy.getDemo();
+        proxy.getDemo(new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, HttpMethod.GET, "/api"));
     }
 
 }

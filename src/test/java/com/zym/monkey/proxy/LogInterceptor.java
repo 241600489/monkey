@@ -17,6 +17,8 @@ public class LogInterceptor implements Interceptor {
     public Object intercept(MethodInvocation methodInvocation) {
         Object result = null;
         try {
+            Object[] objects = methodInvocation.getParameters();
+
             result= methodInvocation.executeNext();
         } catch (Exception e) {
             e.printStackTrace();

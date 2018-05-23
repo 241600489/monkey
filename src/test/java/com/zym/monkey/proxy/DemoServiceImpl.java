@@ -1,6 +1,7 @@
 package com.zym.monkey.proxy;
 
-import java.text.DecimalFormat;
+import com.zym.monkey.monkeyutil.JsonUtil;
+import io.netty.handler.codec.http.FullHttpRequest;
 
 /**
  * @author 梁自强
@@ -9,8 +10,8 @@ import java.text.DecimalFormat;
  */
 public class DemoServiceImpl implements DemoService {
     @Override
-    public String getDemo() {
-        return "程序代理";
+    public String getDemo(FullHttpRequest request) {
+        return JsonUtil.toJsonString(request);
     }
 
 }
