@@ -1,5 +1,8 @@
 package com.zym.monkey.monkeycore.intercep;
 
+import com.zym.monkey.monkeycore.message.ResponseMessage;
+import io.netty.handler.codec.http.FullHttpRequest;
+
 /**
  * @author 梁自强
  * @date 2018/5/22 10:00
@@ -10,6 +13,17 @@ package com.zym.monkey.monkeycore.intercep;
  */
 public interface Interceptor {
     Object intercept(MethodInvocation methodInvocation);
+    /**
+     * 方法执行之前，拦截执行
+     * @param request 请求
+     */
+    public void interceptBefore(FullHttpRequest request);
 
+    /**
+     * 方法执行完成之后 拦截执行
+     * @param request 请求
+     * @param responseMessage 返回的响应信息
+     */
+    public void interceptAfter(FullHttpRequest request, ResponseMessage responseMessage);
     int getOrder();
 }
