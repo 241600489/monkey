@@ -12,4 +12,5 @@ public class JsonUtil {
     public static String toJsonString(Object obj) {
        return new Gson().toJson(obj);
     }
+
 }
