@@ -47,4 +47,14 @@ public class ResponseMessage {
     public void setErrorMsg(MonkeyErrorMsg errorMsg) {
         this.errorMsg = errorMsg;
     }
+
+    @Override
+    public String toString() {
+        return "ResponseMessage{" +
+                "status=" + status +
+                ", message='" + message + '\'' +
+                ", data=" + data +
+                ", errorMsg=" + errorMsg +
+                '}';
+    }
 }
