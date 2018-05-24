@@ -25,5 +25,10 @@ public interface Interceptor {
      * @param responseMessage 返回的响应信息
      */
     public void interceptAfter(FullHttpRequest request, ResponseMessage responseMessage);
+
+    /**
+     * 拦截器的顺序，程序执行会按照这个顺序
+     * @return
+     */
     int getOrder();
 }
