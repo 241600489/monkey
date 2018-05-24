@@ -13,11 +13,11 @@ import java.util.List;
  * @date 2018/5/22 15:11
  * @desc
  */
-public class MyHandler implements InvocationHandler {
+public class MonkeyHandler implements InvocationHandler {
     private Object target;
     private List<Interceptor> list;
 
-    public MyHandler(Object target, List<Interceptor> list) {
+    public MonkeyHandler(Object target, List<Interceptor> list) {
         this.target = target;
         this.list = list;
     }

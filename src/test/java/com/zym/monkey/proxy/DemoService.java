@@ -1,5 +1,6 @@
 package com.zym.monkey.proxy;
 
+import com.zym.monkey.monkeycore.message.ResponseMessage;
 import io.netty.handler.codec.http.FullHttpRequest;
 
 /**
@@ -8,7 +9,8 @@ import io.netty.handler.codec.http.FullHttpRequest;
  * @desc
  */
 public interface DemoService {
-    String getDemo(FullHttpRequest request);
+    String getDemo(FullHttpRequest request, ResponseMessage responseMessage);
+
 
 
 }
