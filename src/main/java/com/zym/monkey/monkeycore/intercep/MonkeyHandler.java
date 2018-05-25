@@ -1,8 +1,4 @@
-package com.zym.monkey.proxy;
-
-import com.zym.monkey.monkeycore.intercep.DefaultMethodInvocation;
-import com.zym.monkey.monkeycore.intercep.Interceptor;
-import com.zym.monkey.monkeycore.intercep.MethodInvocation;
+package com.zym.monkey.monkeycore.intercep;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
