@@ -1,5 +1,6 @@
 package com.zym.monkey.monkeycore.intercep;
 
+import com.google.common.base.Preconditions;
 import com.zym.monkey.monkeycore.message.ResponseMessage;
 import io.netty.handler.codec.http.FullHttpRequest;
 
@@ -33,6 +34,7 @@ public abstract class AbsMonkeyInterceptor implements Interceptor {
 
     @Override
     public int compareTo(Interceptor interceptor) {
+        interceptor=Preconditions.checkNotNull(interceptor, "interceptor： 要传入的对象不能为空");
         return this.getOrder() - interceptor.getOrder();
     }
 }
