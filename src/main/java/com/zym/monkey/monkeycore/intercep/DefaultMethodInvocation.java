@@ -1,6 +1,7 @@
 package com.zym.monkey.monkeycore.intercep;
 
 import java.lang.reflect.Method;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -28,6 +29,7 @@ public  class DefaultMethodInvocation implements MethodInvocation {
         this.parameters = parameters;
         this.interceptors = interceptors;
         this.method = method;
+        Collections.sort(this.interceptors);
     }
 
     /**
@@ -43,9 +45,6 @@ public  class DefaultMethodInvocation implements MethodInvocation {
         Interceptor interceptor = interceptors.get(++currentIndex);
         return  interceptor.intercept(this);
     }
-
-
-
 
     public Object getTarget() {
         return target;
