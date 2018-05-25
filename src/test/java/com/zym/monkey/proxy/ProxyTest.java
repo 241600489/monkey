@@ -2,6 +2,7 @@ package com.zym.monkey.proxy;
 
 import com.zym.monkey.monkeycore.intercep.Interceptor;
 import com.zym.monkey.monkeycore.intercep.InterceptorChain;
+import com.zym.monkey.monkeycore.intercep.MonkeyHandler;
 import com.zym.monkey.monkeycore.message.ResponseMessage;
 import io.netty.handler.codec.http.DefaultFullHttpRequest;
 import io.netty.handler.codec.http.HttpMethod;
@@ -16,7 +17,7 @@ import java.util.List;
  * @date 2018/5/22 9:50
  * @desc 测试代理
  */
-public class ProxyTest  {
+public class ProxyTest {
     @Test
     public void testgetInstance() {
         InterceptorChain chain = new InterceptorChain();
