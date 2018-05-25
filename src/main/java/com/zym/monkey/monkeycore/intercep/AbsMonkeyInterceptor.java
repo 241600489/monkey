@@ -15,8 +15,8 @@ public abstract class AbsMonkeyInterceptor implements Interceptor {
         Object[] parameters = methodInvocation.getParameters();
         FullHttpRequest request = (FullHttpRequest) parameters[0];
         ResponseMessage responseMessage = (ResponseMessage) parameters[1];
-        interceptBefore(request);
         try {
+            interceptBefore(request);
             result = methodInvocation.executeNext();
             interceptAfter(request, responseMessage);
             return result;
@@ -29,5 +29,10 @@ public abstract class AbsMonkeyInterceptor implements Interceptor {
     @Override
     public int getOrder() {
         return 0;
+    }
+
+    @Override
+    public int compareTo(Interceptor interceptor) {
+        return this.getOrder() - interceptor.getOrder();
     }
 }
