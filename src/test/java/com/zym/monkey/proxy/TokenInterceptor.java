@@ -13,13 +13,18 @@ import org.slf4j.LoggerFactory;
  */
 public class TokenInterceptor extends AbsMonkeyInterceptor {
     private static final Logger log = LoggerFactory.getLogger(TokenInterceptor.class);
+
+
     public void interceptBefore(FullHttpRequest request) {
-        log.info(request.toString());
+        log.info("验证成功。。。。。");
     }
 
     @Override
     public void interceptAfter(FullHttpRequest request, ResponseMessage responseMessage) {
-        log.info("返回信息" + responseMessage.toString());
     }
 
+    @Override
+    public int getOrder() {
+        return 25;
+    }
 }
