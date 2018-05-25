@@ -17,7 +17,7 @@ import io.netty.handler.codec.http.HttpResponseEncoder;
  * @Date 2018/5/21 14:44
  * @desc 用netty 构建一个接入客户端请求的endpoint
  */
-public class JoinHttp {
+public class JoinHttpServer {
     public void startHttp(String ip, int port, int threadNum, int soBackLog) {
 
         EventLoopGroup bossGroop = new NioEventLoopGroup(threadNum);
@@ -40,7 +40,6 @@ public class JoinHttp {
             ChannelFuture f = b.bind(ip, port).sync();
             f.channel().closeFuture().sync();
         } catch (InterruptedException e) {
-
             e.printStackTrace();
         }finally {
             /*优雅关闭*/
@@ -52,6 +51,6 @@ public class JoinHttp {
     }
 
     public static void main(String[] args) {
-        new JoinHttp().startHttp("127.0.0.1", 8080, 20, 1024);
+        new JoinHttpServer().startHttp("127.0.0.1", 8080, 20, 1024);
     }
 }
