@@ -3,5 +3,5 @@ monkey:
     route:
     path:
     serviceId:
-
-#单位MB
+application:
+  port: 8080
