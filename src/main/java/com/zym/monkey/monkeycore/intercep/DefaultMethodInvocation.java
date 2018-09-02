@@ -29,6 +29,7 @@ public  class DefaultMethodInvocation implements MethodInvocation {
         this.parameters = parameters;
         this.interceptors = interceptors;
         this.method = method;
+        //根据每个拦截器的order 进行排序
         Collections.sort(this.interceptors);
     }
 
