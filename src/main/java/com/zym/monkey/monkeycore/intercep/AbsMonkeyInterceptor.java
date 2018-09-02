@@ -37,4 +37,8 @@ public abstract class AbsMonkeyInterceptor implements Interceptor {
         interceptor=Preconditions.checkNotNull(interceptor, "interceptor： 要传入的对象不能为空");
         return this.getOrder() - interceptor.getOrder();
     }
+
+    public boolean isEnable() {
+        return Boolean.TRUE;
+    }
 }
